@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/counting/:number', (req, res) => {
-    const limit = parseInt(req.params.number);
-    const arrayCount = [];
-    for (let i = 1; i <= limit; i++) {
-        arrayCount[i-1] = i;
-    }
-    res.status(200).send(arrayCount);
+const {limitCount} = require('../middlewares/limitCount')
+
+router.get('/counting/:number', limitCount, (req, res) => {
+    const test = req.countArray;
+    console.log(test)
+    res.status(200).send(test);
 });
 
 module.exports = router;
