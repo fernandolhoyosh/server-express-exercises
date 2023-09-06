@@ -7,11 +7,12 @@ const limitCount = (req, res, next) => {
   }
 
   if (limit >= 10) {
-    const prueba = arrayCount.slice(0, 10);
-    req.countArray = prueba;
+    const arrayRequest = arrayCount.slice(0, 10);
+    req.countArray = arrayRequest;
   } else {
     req.countArray = arrayCount;
   }
+  
   next();
 };
 

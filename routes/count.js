@@ -4,9 +4,9 @@ const router = express.Router();
 const {limitCount} = require('../middlewares/limitCount')
 
 router.get('/counting/:number', limitCount, (req, res) => {
-    const test = req.countArray;
-    console.log(test)
-    res.status(200).send(test);
+    const arrayCount = req.countArray;
+    console.log(arrayCount);
+    res.status(200).send(arrayCount);
 });
 
 module.exports = router;
