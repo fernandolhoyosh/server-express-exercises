@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/greetings', (req, res) => {
+const {valueParams} = require('../middlewares/validateParameter');
+
+router.get('/greetings', valueParams, (req, res) => {
     res.status(200).json({
         greet:{
             english:"Hello user. Welcome",
