@@ -5,12 +5,13 @@ const port = 3000;
 const path = require('node:path');
 
 app.use(express.static('public'));
-/* app.use('/dark', express.static('public'));
-app.use('/light', express.static('public'));
-app.use('change', express.static('public')); */
+
+/* app.use(express.static(path.join(__dirname, '..', 'public','css')));
+console.log(path.join(__dirname, '..', 'public','css'))
+app.use(express.static(path.join(__dirname, '..', 'public','js'))); */
 
 app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname,'..','public','index.html'));
+    res.sendFile(path.join(__dirname,'..','public','index.html'));
 });
 
 app.listen(port,()=>{
